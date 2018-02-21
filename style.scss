@@ -1,0 +1,176 @@
+@import "compass";
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #F5F6CE;
+$subColor: #8b4513;
+$keyColor: #FE2E2E;
+$fontColor: #fff;
+
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Header
+------------------------------------------------------------*/
+header {
+  .header {
+    background-image: url("./img_header.jpeg");
+    width: auto;
+    height: 250px;
+  }
+}
+
+// desktop
+@media (min-width: 769px) {
+  header {
+  .header {
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+   }
+ }
+
+}
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+}
+
+// Menu
+#menu-list {
+  h2 {
+    color: $keyColor;
+    text-align: center;
+  }
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // スキルボックスを縦に並べる
+  }  
+  h3 {
+    color: $keyColor;
+    text-align: center;
+  }
+  .menu-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 20px;
+    background-color: $subColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  // Menu
+  #menu-list {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .menu-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+}
+
+/* Footer
+------------------------------------------------------------*/
+footer {
+  background-color: $subColor;
+  padding: 10px 0;
+  text-align: center;
+  color: #FFF;
+  .button {
+    margin: auto;
+          text-align: center;
+          padding: 5px 0;
+          width: 180px;
+          display: block;
+          color: #FFF;
+          font-weight: bold;
+          background-color: $keyColor;
+          @extend .abel;
+          @extend .uppercase;
+          @include border-radius(4px);
+          font-size: 1rem;
+  .button-readmore {
+    color: $baseColor;
+    }
+  }
+}
+
+// desktop
+@media (min-width: 769px) {
+  .button {
+  a {
+          .button-readmore {
+            &:hover {
+              background-color: darken($keyColor, 10%);
+            }
+          }
+        }
+  }
+ }
